@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <p>
+       press 1 for black- press 2 for yellow- press 3 for orange- press 4 for green- press 5 for eraser- press s to save your drawing!
+    </p>
+    
+    <script>
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      var currentColor = "black";
+      
+      function setup() {
+        createCanvas(w, h);
+        frameRate(60);
+      }
+  
+      function draw() {
+        if(mouseIsPressed){
+          strokeWeight(6);
+          line(mouseX, mouseY, pmouseX, pmouseY);
+          stroke(currentColor);
+        }
+      }
+      
+      function keyPressed(){
+        if (keyCode == "49"){
+          currentColor = "black";
+        }
+        if (keyCode == "50"){
+          currentColor = "yellow";
+        }
+        else if (keyCode == "51"){
+          currentColor = "orange";
+        }
+        else if (keyCode == "52"){
+          currentColor = "lightgreen";
+        }
+        else if (keyCode == "53"){
+          currentColor = "white";
+        }
+        else if (keyCode == "83"){
+          saveCanvas('myCanvas', 'png');
+        }
+      }
+      
+
+    </script>
+  </body>
+</html>
